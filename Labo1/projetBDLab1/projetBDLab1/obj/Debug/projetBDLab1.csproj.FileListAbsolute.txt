@@ -1,0 +1,6 @@
+B:\envDevLog\Labos\Labo1\projetBDLab1\projetBDLab1\bin\Debug\projetBDLab1.exe.config
+B:\envDevLog\Labos\Labo1\projetBDLab1\projetBDLab1\bin\Debug\projetBDLab1.exe
+B:\envDevLog\Labos\Labo1\projetBDLab1\projetBDLab1\bin\Debug\projetBDLab1.pdb
+B:\envDevLog\Labos\Labo1\projetBDLab1\projetBDLab1\obj\Debug\projetBDLab1.csprojResolveAssemblyReference.cache
+B:\envDevLog\Labos\Labo1\projetBDLab1\projetBDLab1\obj\Debug\projetBDLab1.exe
+B:\envDevLog\Labos\Labo1\projetBDLab1\projetBDLab1\obj\Debug\projetBDLab1.pdb

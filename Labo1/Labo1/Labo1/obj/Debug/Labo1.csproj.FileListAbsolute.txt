@@ -1,0 +1,6 @@
+B:\envDevLog\Labos\Labo1\Labo1\Labo1\bin\Debug\Labo1.exe.config
+B:\envDevLog\Labos\Labo1\Labo1\Labo1\bin\Debug\Labo1.exe
+B:\envDevLog\Labos\Labo1\Labo1\Labo1\bin\Debug\Labo1.pdb
+B:\envDevLog\Labos\Labo1\Labo1\Labo1\obj\Debug\Labo1.exe
+B:\envDevLog\Labos\Labo1\Labo1\Labo1\obj\Debug\Labo1.pdb
+B:\envDevLog\Labos\Labo1\Labo1\Labo1\obj\Debug\Labo1.csprojResolveAssemblyReference.cache
