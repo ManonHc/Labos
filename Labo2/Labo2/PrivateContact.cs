@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labo2
 {
-    class PrivateContact : Person
+    public class PrivateContact : Person
     {
        
         public String MailPrivé { get; set; }
