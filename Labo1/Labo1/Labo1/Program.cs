@@ -23,6 +23,10 @@ namespace Labo1
                 new Pupil("Marvin", 8, 1),
         };
 
+            IEnumerable<Pupil> listPupilsNotDuplicated = listPupilDuplicated.Distinct<Pupil>(new PersonComparer());
+
+
+
             Pupil manon = new Pupil("manon", 6, 1);
             List<Pupil> listPupil = new List<Pupil>() {
 
@@ -52,7 +56,8 @@ namespace Labo1
             Activity piscine = new Activity("piscine", true);
             Activity yoga = new Activity("Yoga", true);
             Activity judo = new Activity("Judo", false);
-
+            Activity coloriage = new Activity("Coloriage", true);
+            Activity gym = new Activity("Gym", true);
 
 
 
@@ -60,14 +65,22 @@ namespace Labo1
             manon.AddActivity(piscine);
             manon.AddActivity(yoga);
             manon.AddActivity(judo);
-            manon.AddEvaluation("Coloriage");
+            manon.AddActivity(gym);
+            manon.AddActivity(coloriage);
 
-                /* ==> première version avec LINQ
-                 *  var pupilGradePlus6 = from pupil in listPupil
-                                        where pupil.Age > 6 && pupil.Grade == 1
-                                        select pupil;*/
-                //notons ici que le select est en dernier... pq?
-                // version expression lambda. on saura ici que pupil est un objet de la liste car la liste est de type pupil
+            manon.AddEvaluation("Piscine", Parameter.Eval.R);
+            manon.AddEvaluation("Judo", Parameter.Eval.R);
+            manon.AddEvaluation("Coloriage", Parameter.Eval.R);
+
+            /* ==> première version avec LINQ
+            var pupilGradePlus6 = from pupil in listPupil
+                                    where pupil.Age > 6 && pupil.Grade == 1
+                                    select pupil;*/
+            //notons ici que le select est en dernier... pq?
+            
+            
+            
+            // version expression lambda. on saura ici que pupil est un objet de la liste car la liste est de type pupil
             var pupilGradePlus6 = listPupil.Where(pupil => pupil.Age > 6 && pupil.Grade == 1);
 
 
@@ -75,14 +88,17 @@ namespace Labo1
             if(pupilGradePlus6 != null)
                 foreach(var pupil in pupilGradePlus6)
                 {
+                    pupil.AddActivity(yoga);
+                    pupil.AddActivity(piscine);
+                    pupil.AddActivity(coloriage);
                     System.Console.Write(pupil+"\n");
                 }
 
-            foreach (var person in listFusion)
-            {
+            /*foreach (var person in listFusion)
+            { 
                 System.Console.Write(person + "\n");
-            }
-            System.Console.Write(manon.TabEval[0]);
+            }*/
+            //System.Console.Write(manon.pupilEvaluation[0]);
             
             System.Console.Read();
         }

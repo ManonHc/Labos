@@ -7,24 +7,18 @@ using System.Threading.Tasks;
 
 namespace Labo1
 {
-    class PersonComparer : IEqualityComparer<Person>
+     class PersonComparer : IEqualityComparer<Person>
     {
-        public Boolean Equals(Person a, Person b)
+        public Boolean Equals (Person a, Person b)
         {
-            Boolean egal = false;
-
-            if (a.Age == b.Age && a.Name.Equals(b.Name))
-            {
-                egal = true;
-            }
-            return egal;
-
+            return ((a.Name.Equals(b.Name) && (a.Age == b.Age)));
         }
 
+        // en gros ces deux fonction s'utilisent l'un eet l'autre mais ne sont pas appelée par nous
+        // elles seront utilisée quand dans program.cs on va appeler list.Distinct
         public int GetHashCode (Person a)
         {
-            /*int hash = a.Name ^ a.Age;
-            return hash;*/
+            return (a.Name.GetHashCode()) ^ (a.Age);
         }
     }
 }
