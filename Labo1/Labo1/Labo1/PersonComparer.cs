@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labo1
 {
-     class PersonComparer : IEqualityComparer<Person>
+    public class PersonComparer : IEqualityComparer<Person>
     {
         public Boolean Equals (Person a, Person b)
         {

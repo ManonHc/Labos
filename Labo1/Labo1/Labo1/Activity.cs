@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labo1
 {
-    class Activity
+    public class Activity
     {
 
         // attributs

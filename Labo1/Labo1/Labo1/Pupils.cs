@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace Labo1
 {
-    class Pupil : Person
+    public class Pupil : Person
     {
-        //attributs
+        //************************************************attributs*******************************************************
         private int grade;
         private int indice;
-        private Dictionary<String, char> pupilActivities; 
-        
+        private Dictionary<String, char> pupilActivities;
 
 
 
-        // propriété
-    //    public List<Activity> ListActivities { get; set; }
-   //     public char[] pupilEvaluation { get; set; }
+
+        //************************************************propriété*******************************************************
+
+         public List<Activity> ListActivities { get; set; }
+        //     public char[] pupilEvaluation { get; set; }
 
         public int Grade
         {
@@ -38,7 +39,12 @@ namespace Labo1
 
         public Dictionary<string, char> PupilActivities  { get; set; }
 
-        //constructeur
+
+        //************************************************délégué*******************************************************
+        public delegate string DelegatePrintActivityCompulsory(Activity activity);
+
+
+        //************************************************constructeur*******************************************************
         public Pupil(string name, int age, int grade) : base(name, age)
         {
             Grade = grade;
@@ -49,7 +55,24 @@ namespace Labo1
 
         public Pupil(string name, int age) : this(name, age, 1) { }
 
-        // méthode
+
+
+        //************************************************méthodes*******************************************************
+
+        public string PrintPupilActivityCompulsory (DelegatePrintActivityCompulsory MyPrintActivity)
+        {
+            int numAct = 0;
+            string ch = base.ToString() + "a choisi les activités obligatoire: \n";
+
+            foreach (Activity activity in ListActivities)
+                if (activity.Compulsory)
+                    ch += (++numAct) + "" + MyPrintActivity(activity);
+            return ch;
+        }
+
+
+
+
 
         public void AddActivity(Activity activity)
         {
@@ -64,8 +87,8 @@ namespace Labo1
         }
 
         
-        private string printActivities(string chaine)
-        {
+       private string printActivities(string chaine)
+       {
             if (pupilActivities.Count() == 0) { chaine += " n'a pas encore choisi"; return chaine; }
             else
             {
@@ -76,17 +99,19 @@ namespace Labo1
                 }*/
                 return chaine;
             }
-        }
+       }
 
-        private string HeaderPupil() { return base.ToString();}
+       private string HeaderPupil() { return base.ToString();}
 
-        public void AddEvaluation(String title = null, Parameter.Eval eval = Parameter.Eval.S)
-        {
+       public void AddEvaluation(String title = null, Parameter.Eval eval = Parameter.Eval.S)
+       {
             pupilActivities[title] = (char)eval;
             this.indice++;
-        }
+       }
 
        
+            
+
     }
 }
 
