@@ -33,6 +33,17 @@ namespace WPFClient
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Formulaire.DataContext = _customer;
+            _context.Database.Initialize(true);
+            _customer = new Customer()
+            {
+                Name = "Manon Libert",
+                AddressLine1 = "Rue de forêt 47",
+                City = "Namur",
+                EMail = "manon@wallontours.be",
+                Id = 2,
+                Remark = "Apporter des fleurs",
+                PostCode = "5000"
+            };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
