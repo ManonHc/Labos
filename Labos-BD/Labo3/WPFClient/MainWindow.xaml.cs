@@ -2,6 +2,7 @@
 using labo3;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace WPFClient
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Formulaire.DataContext = _customer;
+           
             _context.Database.Initialize(true);
             _customer = new Customer()
             {
@@ -44,10 +45,17 @@ namespace WPFClient
                 Remark = "Apporter des fleurs",
                 PostCode = "5000"
             };
+            Formulaire.DataContext = _customer;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
+            _context.Customers.Find(1).AccountBalance += (double)MontantAAjouterAuCompte.Value;
+            _context.SaveChanges();
+            
+            
+
             
         }
     }
