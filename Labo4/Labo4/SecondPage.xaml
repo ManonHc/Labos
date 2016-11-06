@@ -6,9 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Source={StaticResource Locator}, Path=Main Second}">
+    DataContext="{Binding Source={StaticResource Locator}, Path=MainSecond}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <StackPanel Orientation="Vertical" Margin="0,51.167,0,-51">
+            <StackPanel Orientation="Horizontal" Height="Auto">
+                <TextBlock Text="Nom : " FontSize="20" Width="100"/>
+                <TextBlock Text="{Binding SelectedStudent.Name}" FontSize="20"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="Auto">
+                <TextBlock Text="Age : " FontSize="20" Width="100"/>
+                <TextBlock Text="{Binding SelectedStudent.Age}" FontSize="20"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

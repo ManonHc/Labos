@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="Carpartage.View.AddPassengerForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Carpartage.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Padding="10,10,10,10" Text="Ajouter une annonce" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Grid Margin="0,40,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Date"  HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <TextBlock Text="Tranche horaire" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <TextBlock Text="Nombre de passager " Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Supermarché(s)" Grid.Row="4" HorizontalAlignment="Center"/>
+            <TextBlock Text="Lieu de départ"  VerticalAlignment="Center" Grid.Row="5" HorizontalAlignment="Center"/>
+            <TextBlock Text="Taille des courses" Grid.Row="6" HorizontalAlignment="Center"/>
+            <TextBlock Text="Description" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Content="Ajouter" HorizontalAlignment="Center" Grid.Row="8" Grid.Column="1"/>
+            <CalendarDatePicker Grid.Row="1" HorizontalAlignment="Center" Margin="10,10,10,10"/>
+            <TimePicker Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="7"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Margin="5"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Margin="10,10,10,10"/>
+            <ScrollViewer Grid.Row="4" Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="5">
+                <StackPanel >
+                    <CheckBox Content="Aldi"/>
+                    <CheckBox Content="Colruyt"/>
+                    <CheckBox Content="Carrefour"/>
+                    <CheckBox Content="Lidl"/>
+                </StackPanel>
+            </ScrollViewer>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="6" Grid.Column="1" Margin="7">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="Petite" />
+                    <RadioButton Content="Moyenne" />
+                    <RadioButton Content="Grande"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

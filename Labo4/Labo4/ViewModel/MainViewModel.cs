@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Labo4.Model;
@@ -9,6 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Labo4.ViewModel
 {
@@ -17,6 +19,11 @@ namespace Labo4.ViewModel
         private ObservableCollection<Student> _students;
         private Student _selectedStudent;
         private INavigationService _navigationService;
+        private ICommand _editStudentCommand;
+
+
+       
+
         [PreferredConstructor]
         public MainViewModel(INavigationService navigationService)
         {
@@ -24,7 +31,17 @@ namespace Labo4.ViewModel
             //init liste
             Students = new ObservableCollection<Student>(AllStudents.GetAllStudents()); ;
         }
-
+        public ICommand EditStudentCommand
+        {
+            get
+            {
+                if (this._editStudentCommand == null)
+                {
+                    this._editStudentCommand = new RelayCommand(() => EditStudent());
+                }
+                return _editStudentCommand;
+            }
+        }
         public ObservableCollection<Student> Students
         {
             get { return _students; }
@@ -37,6 +54,13 @@ namespace Labo4.ViewModel
             }
         }
 
+        
+
+        public MainViewModel()
+        {
+            Students = new ObservableCollection<Student>(AllStudents.GetAllStudents());
+        }
+
         public Student SelectedStudent
         {
             get
@@ -47,16 +71,23 @@ namespace Labo4.ViewModel
             set
             {
                 _selectedStudent = value;
-                if(_selectedStudent != null)
+                if (_selectedStudent != null)
                 {
-                    RaisePropertyChanged("SelectedStudent");
+                    RaisePropertyChanged("SelectedStudent");  
                 }
+
             }
         }
-
-        public MainViewModel()
+        private void EditStudent()
         {
-            Students = new ObservableCollection<Student>(AllStudents.GetAllStudents());
+            if (CanExecute() == true)
+            {
+                _navigationService.NavigateTo("SecondPage", SelectedStudent);
+            }
+        }
+        public bool CanExecute()
+        {
+            return (SelectedStudent == null) ? false : true;
         }
     }
 }

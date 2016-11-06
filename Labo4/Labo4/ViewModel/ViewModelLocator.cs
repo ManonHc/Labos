@@ -14,12 +14,17 @@ namespace Labo4.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            NavigationService navigationpages = new NavigationService();
+            
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SecondViewModel>();
-            SimpleIoc.Default.Register<INavigationService>(() => navigationpages);
+
+            NavigationService navigationpages = new NavigationService();
+            //La navigation est déjà enregistré par défaut apparemment, d'après le compilateur ...
+            //l'érreur vient peut-être de là ...
+            if(!SimpleIoc.Default.IsRegistered<INavigationService>())
+                SimpleIoc.Default.Register<INavigationService>(() => navigationpages);
             navigationpages.Configure("MainPage", typeof(MainPage));
-            navigationpages.Configure("MainPage", typeof(SecondPage));
+            navigationpages.Configure("SecondPage", typeof(SecondPage));
 
         }
 

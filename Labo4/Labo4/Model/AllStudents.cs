@@ -14,9 +14,9 @@ namespace Labo4.Model
         {
             return Students = new List<Student>
             {
-                new Student ("Student 1", 20),
-                new Student ("Student 2", 19),
-                new Student ("Student 3", 21),
+                new Student ("Student jahuif", 20),
+                new Student ("Student jazhfeIUG", 19),
+                new Student ("Student JZENFJZ", 21),
             };
         }
     }

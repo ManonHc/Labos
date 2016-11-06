@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Labo4.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,16 @@ namespace Labo4
     /// </summary>
     public sealed partial class SecondPage : Page
     {
-        public SecondPage()
-        {
+        public SecondPage() {
+            
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ((SecondViewModel)DataContext).OnNavigatedTo(e);
         }
     }
 }
+    
+
